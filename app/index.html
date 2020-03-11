@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+
+  <script>window.electron = require('electron')</script>
+</head>
+<body>
+<button onclick="maxWindow()">最大化</button>
+<button onclick="normalWindow()">还原窗口</button>
+<button onclick="quit()">退出</button>
+</body>
+<script>
+function maxWindow () {
+  window.electron.ipcRenderer.send('windowFullScreen')   //窗口最大化
+}
+function normalWindow () {
+  window.electron.ipcRenderer.send('windowNormal')   //窗口最大化
+
+}
+function quit () {
+  window.electron.ipcRenderer.send('quitWindow')   //退出应用
+}
+</script>
+</html>
